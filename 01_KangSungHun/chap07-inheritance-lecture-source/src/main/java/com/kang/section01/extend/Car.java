@@ -4,13 +4,12 @@ public class Car {
 
   private boolean runningStatus;
 
-  public Car(){
+  public Car() {
     System.out.println("Car 기본 생성자 호출됨");
   }
 
 
-
-  public void run(){
+  public void run() {
     runningStatus = true;
     System.out.println("자동차가 달린다.");
 

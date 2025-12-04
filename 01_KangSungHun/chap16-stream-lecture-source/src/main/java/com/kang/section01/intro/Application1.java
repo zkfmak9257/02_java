@@ -1,0 +1,32 @@
+package com.kang.section01.intro;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
+public class Application1 {
+  public static void main(String[] args) {
+
+    // 생성자인데 ArrayList의 생성자가 하나가 아니다? 
+    List<String> list =
+        new ArrayList<>(Arrays.asList("Hello", "stream", "world"));
+
+    /* list 내에서 "stream"만 걸러내서 출력하기 */
+    Iterator<String> iterator = list.iterator();
+    while (iterator.hasNext()) {  // 다음 요소가 있으면 true, 없음 false
+      String element = iterator.next(); // 다음 요소를 꺼내 element 대입
+
+      if ("stream".equals(element)) {
+        System.out.println("걸러낸 값 : " + element);
+      }
+    }
+
+    /* 위 동작을 Stream을 이용해서 수행 */
+    list
+        .stream()
+        .filter("stream"::equals)
+        .forEach(str -> System.out.println("필터링된 값 : " + str));
+
+  }
+}
